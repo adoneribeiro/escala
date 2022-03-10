@@ -1,0 +1,6 @@
+{
+    "port": ":8081",
+    "deploy": "deploy.json",
+    "mailgun_domain": "mailgun.geoinova.app",
+    "mailgun_apikey": "8e6145ddb96dd269a663be8ea6751c81-9b463597-edf7e5f8"
+}
