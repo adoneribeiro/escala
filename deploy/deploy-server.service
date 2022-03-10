@@ -1,0 +1,12 @@
+[Unit]
+Description = Deploy Server 1.0
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+ExecStart = /home/deploy-server/deploy-server
+WorkingDirectory=/home/deploy-server
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy = multi-user.target

@@ -1,0 +1,66 @@
+[
+    {
+        "app": "App Frontweb Geoinova",
+        "repository": "GeoinovaDev/app-front-geoinova",
+        "ref": "tags",
+        "directory": "/usr/share/nginx/html/app-front-geoinova",
+        "git_token": "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",
+        "commands": [
+                "systemctl stop frontserver",
+                "rm -rf {{.directory}}",
+                "git clone https://{{.git_token}}@github.com/GeoinovaDev/app-front-geoinova.git {{.directory}} 2>&1",
+                "cd {{.directory}} && git pull origin {{.branch}} 2>&1",
+                "chmod 775 {{.directory}}/server/frontserver",
+                "rm -rf /usr/local/lib/frontserver",
+                "cp {{.directory}}/server/frontserver /usr/local/lib/frontserver",
+                "systemctl start frontserver"
+        ],
+        "admins": [{
+            "email": "manoel.junior@geoinova.com.br"
+        }]
+    },
+
+    {
+        "app": "App Api Geoinova",
+        "repository": "GeoinovaDev/app-api-geoinova",
+        "ref": "tags",
+        "directory": "/usr/share/nginx/html/app-api-geoinova",
+        "git_token": "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",
+        "commands": [
+                "cd {{.directory}} && git pull origin {{.branch}} 2>&1",
+                "cd {{.directory}} && php artisan migrate:refresh"
+        ],
+        "admins": [{
+            "email": "manoel.junior@geoinova.com.br"
+        }]
+    },
+
+    {
+        "app": "Layout Geoinova",
+        "repository": "GeoinovaDev/layout-geoinova",
+        "ref": "heads",
+        "directory": "/usr/share/nginx/html/layout-geoinova",
+        "git_token": "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",
+        "commands": [
+                "cd {{.directory}} && git pull origin {{.branch}} 2>&1",
+                "cd {{.directory}} && npm update -y"
+        ],
+        "admins": [{
+            "email": "manoel.junior@geoinova.com.br"
+        }]
+    },
+
+    {
+        "app": "CDN Geoinova",
+        "repository": "GeoinovaDev/cdn-geoinova",
+        "ref": "heads",
+        "directory": "/usr/share/nginx/html/cdn-geoinova",
+        "git_token": "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",
+        "commands": [
+                "cd {{.directory}} && git pull origin {{.branch}} 2>&1"
+        ],
+        "admins": [{
+            "email": "manoel.junior@geoinova.com.br"
+        }]
+    }
+]
