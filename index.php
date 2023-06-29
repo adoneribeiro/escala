@@ -1,3 +1,14 @@
+<?php
+header('Cache-Control: no-cache');
+header('Pragma: no-cache');
+
+if($_SERVER['HTTPS'] != 'on') {
+    $redirectURL = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header("Location: $redirectURL");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +22,9 @@
 
     <title>Atos Music - Escala</title>
 
+    <meta http-equiv="Expires" content="Tue, 01 Jan 1995 12:12:12 GMT">
+    <meta http-equiv="Pragma" content="no-cache">
+    
     <!-- Social Medias -->
     <meta property="og:site_name" content="Atos Music">
     <meta property="og:title" content="Atos Music" />
@@ -38,12 +52,18 @@
     <!-- App style -->
     <link rel="stylesheet" href="css/app.css">
 
-    <script>
+    <!-- <script>
         $(() => {
             function adjustWidthElement($el) {
                 const w = $(window).width();
                 const offset = 20;
-                $el.width(w - offset);
+                let nw = w - offset;
+
+                if (nw < 1024) {
+                    nw = 1024
+                }
+
+                $el.width(nw);
             }
 
             function adjustWidthTableQuarta() {
@@ -51,7 +71,8 @@
             }
 
             function adjustWidthTableDomingo() {
-                adjustWidthElement($('#contentEscalaDomingo'));
+                adjustWidthElement($('#contentEscalaDomingoManha'));
+                adjustWidthElement($('#contentEscalaDomingoNoite'));
             }
 
             function adjustWidthTables() {
@@ -65,7 +86,7 @@
 
             adjustWidthTables();
         });
-    </script>
+    </script> -->
 </head>
 
 <body>
@@ -83,43 +104,34 @@
         <div class="row">
             <div class="col-12">
                 <h3 style="padding: 0px 10px;">Quarta-Feira</h3>
-                <div id="contentEscalaQuarta" style="overflow-x: scroll;padding: 0px 10px;">
-                    <table class="table table-striped table-dark" style="width: 100%;">
+                <div  style="overflow-x: scroll;padding: 0px 10px;">
+                    <table id="contentEscalaQuarta" class="table table-striped table-dark" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th scope="col">Data</th>
                                 <th scope="col">Ministrante(s)</th>
-                                <th scope="col">Back</th>
-                                <th scope="col">Violão</th>
                                 <th scope="col">Cajon</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">07/09/2022</th>
-                                <td>Ian</td>
-                                <td>Renata</td>
-                                <td>Ian</td>
-                                <td>Bruno</td>
+                                <th scope="row">05/07/2023</th>
+                                <td>Robson</td>
+                                <td>Samuel</td>
                             </tr>
                             <tr>
-                                <th scope="row">14/09/2022</th>
-                                <td>Bruno</td>
-                                <td>Marta</td>
-                                <td>Bruno</td>
-                                <td>Manoel</td>
+                                <th scope="row">12/07/2023</th>
+                                <td>Dione</td>
+                                <td>Robson</td>
                             </tr>
                             <tr>
-                                <th scope="row">21/09/2022</th>
-                                <td>Claudinho</td>
-                                <td>Renata</td>
-                                <td>Manoel</td>
-                                <td>Vinícius</td>
+                                <th scope="row">19/07/2023</th>
+                                <td>Bruno</td>
+                                <td>Robson</td>
+                                <td>Robson</td>
                             </tr>
                             <tr>
-                                <th scope="row">28/09/2022</th>
-                                <td>Ian</td>
-                                <td>Marta</td>
+                                <th scope="row">26/07/2023</th>
                                 <td>Ian</td>
                                 <td>Vinícius</td>
                             </tr>
@@ -129,11 +141,12 @@
             </div>
         </div>
         <br>
+        <br>
         <div class="row">
             <div class="col-12">
-                <h3 style="padding: 0px 10px;">Domingo</h3>
-                <div id="contentEscalaDomingo" style="overflow-x: scroll;padding: 0px 10px;">
-                    <table class="table table-striped table-dark" style="width: 100%;">
+                <h3 style="padding: 0px 10px;">Domingo Manhã</h3>
+                <div style="overflow-x: scroll;padding: 0px 10px;">
+                    <table id="contentEscalaDomingoManha" class="table table-striped table-dark" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th scope="col">Data</th>
@@ -141,56 +154,125 @@
                                 <th scope="col">Back(s)</th>
                                 <th scope="col">Violão</th>
                                 <th scope="col">Teclado</th>
-                                <th scope="col">Guitar</th>
                                 <th scope="col">Baixo</th>
                                 <th scope="col">Bateria</th>
-                                <th scope="col">Holder</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">04/09/2022</th>
-                                <td>Bruno</td>
-                                <td>Renata</td>
-                                <td>Bruno</td>
-                                <td>Help</td>
-                                <td>Billy</td>
+                                <th scope="row">02/07/2023</th>
+                                <td>Patrícia</td>
+                                <td>Vinícius</td>
+                                <td>Manoel</td>
+                                <td>Amanda</td>
                                 <td>Danilo</td>
-                                <td>Manoel</td>
-                                <td>Manoel</td>
+                                <td>Robson</td>
                             </tr>
                             <tr>
-                                <th scope="row">11/09/2022</th>
-                                <td>Claudinho</td>
-                                <td>Marta</td>
-                                <td>Bruno</td>
-                                <td>-</td>
+                                <th scope="row">09/07/2023</th>
                                 <td>Ian</td>
-                                <td>Danilo</td>
+                                <td>Vinícius</td>
+                                <td>Ian</td>
+                                <td></td>
                                 <td>Manoel</td>
-                                <td>Ian</td>
+                                <td>Robson</td>
                             </tr>
                             <tr>
-                                <th scope="row">18/09/2022</th>
-                                <td>Help</td>
-                                <td>Billy</td>
-                                <td>Billy</td>
-                                <td>-</td>
-                                <td>Bruno</td>
-                                <td>Danilo</td>
-                                <td>Manoel</td>
-                                <td>Bruno</td>
+                                <th scope="row">16/07/2023</th>
+                                <td>Jeff</td>
+                                <td>Etyene</td>
+                                <td>Jeff</td>
+                                <td></td>
+                                <td>Ian</td>
+                                <td>Samuel</td>
                             </tr>
                             <tr>
-                                <th scope="row">25/09/2022</th>
+                                <th scope="row">23/07/2023</th>
+                                <td>Dione</td>
+                                <td></td>
+                                <td>Manoel</td>
+                                <td>Amanda</td>
+                                <td>Danilo</td>
+                                <td>Robson</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">30/07/2023</th>
+                                <td>Jeff</td>
+                                <td>Etyene</td>
+                                <td>Jeff</td>
+                                <td></td>
+                                <td>Danilo</td>
+                                <td>Samuel</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <h3 style="padding: 0px 10px;">Domingo Noite</h3>
+                <div style="overflow-x: scroll;padding: 0px 10px;">
+                    <table id="contentEscalaDomingoNoite" class="table table-striped table-dark" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th scope="col">Data</th>
+                                <th scope="col">Ministrante(s)</th>
+                                <th scope="col">Back(s)</th>
+                                <th scope="col">Violão</th>
+                                <th scope="col">Teclado</th>
+                                <th scope="col">Baixo</th>
+                                <th scope="col">Bateria</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">02/07/2023</th>
                                 <td>Ian</td>
-                                <td>Renata, Marta</td>
-                                <td>Ian (Violão 1)</td>
+                                <td>Etyene</td>
+                                <td>Ian</td>
+                                <td></td>
+                                <td>Jeff</td>
+                                <td>Samuel</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">09/07/2023</th>
+                                <td>Jeff</td>
+                                <td>Etyene</td>
+                                <td>Jeff</td>
+                                <td>Amanda</td>
+                                <td>Danilo</td>
+                                <td>Samuel</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16/07/2023</th>
+                                <td>Patrícia</td>
+                                <td>Vinícius</td>
+                                <td>Manoel</td>
+                                <td>Amanda</td>
+                                <td>Danilo</td>
+                                <td>Robson</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">23/07/2023</th>
+                                <td>Ian</td>
+                                <td>Etyene</td>
+                                <td>Ian</td>
                                 <td>-</td>
-                                <td>Billy (Violão 2)</td>
-                                <td>-</td>
-                                <td>Vinícius (Cajon)</td>
-                                <td>Billy</td>
+                                <td>Jeff</td>
+                                <td>Samuel</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">30/07/2023</th>
+                                <td>Ian</td>
+                                <td>Vinícius</td>
+                                <td>Ian</td>
+                                <td>Amanda</td>
+                                <td>Danilo</td>
+                                <td>Robson</td>
                             </tr>
                         </tbody>
                     </table>
