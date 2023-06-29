@@ -128,7 +128,6 @@ if($_SERVER['HTTPS'] != 'on') {
                                 <th scope="row">19/07/2023</th>
                                 <td>Bruno</td>
                                 <td>Robson</td>
-                                <td>Robson</td>
                             </tr>
                             <tr>
                                 <th scope="row">26/07/2023</th>
@@ -201,7 +200,7 @@ if($_SERVER['HTTPS'] != 'on') {
                                 <td>Etyene</td>
                                 <td>Jeff</td>
                                 <td></td>
-                                <td>Danilo</td>
+                                <td>Manoel</td>
                                 <td>Samuel</td>
                             </tr>
                         </tbody>
