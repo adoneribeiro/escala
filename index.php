@@ -20,7 +20,7 @@ if($_SERVER['HTTPS'] != 'on') {
 
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
 
-    <title>Atos Music - Escala</title>
+    <title>Atos Music - Escala - Julho</title>
 
     <meta http-equiv="Expires" content="Tue, 01 Jan 1995 12:12:12 GMT">
     <meta http-equiv="Pragma" content="no-cache">
